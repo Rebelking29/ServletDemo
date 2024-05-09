@@ -43,10 +43,9 @@ public class Student {
 		super();
 		
 	}
-	public Student(int studentrollno, String studnetName, String studentEmail, String studentMobile,
+	public Student( String studnetName, String studentEmail, String studentMobile,
 			String studentBranch) {
 		super();
-		this.studentrollno = studentrollno;
 		this.studnetName = studnetName;
 		this.studentEmail = studentEmail;
 		this.studentMobile = studentMobile;
