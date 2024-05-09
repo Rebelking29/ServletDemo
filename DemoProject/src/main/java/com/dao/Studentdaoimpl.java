@@ -14,7 +14,7 @@ public class Studentdaoimpl implements StudentDao {
 	Connection connection;
 	PreparedStatement ps;
 	ResultSet rs;
-	String query;
+	// String query;
 	int row;
 	
 
@@ -24,8 +24,8 @@ public class Studentdaoimpl implements StudentDao {
 		try {
 			
 			connection = DBConnection.getConnection();
-			query = "insert into students (name,email,mobile,branch) values(?,?,?,?)";
-			ps = connection.prepareStatement(query);
+			
+			ps = connection.prepareStatement("insert into students (name,email,mobile,branch) values(?,?,?,?)");
 			ps.setString(1, std.getStudnetName());
 			ps.setString(2, std.getStudentEmail());
 			ps.setString(3, std.getStudentMobile());
