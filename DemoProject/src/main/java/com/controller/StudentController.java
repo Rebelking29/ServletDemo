@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 import com.dao.Studentdaoimpl;
 import com.pojo.Student;
@@ -19,6 +20,30 @@ public class StudentController extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		response.setContentType("text/html");
+		
+		String action  = request.getParameter("action");
+		if(action != null && action.equals("delete")) {
+			int temp = Integer.parseInt(request.getParameter("rollno"));
+			
+			boolean delete = stdimp.deleteStudent(temp);
+			
+			if(delete) {
+				response.sendRedirect("stud");
+			}
+			
+		}else {
+			
+			List<Student> slist = stdimp.showStudents();
+			if(slist != null) {
+				response.getWriter().print(slist);
+			}else {
+				response.getWriter().print("List is empty Please Enter Student Data");
+				request.getRequestDispatcher("AddStudent.html").include(request, response);
+			}
+		}
+		
 		
 	}
 
