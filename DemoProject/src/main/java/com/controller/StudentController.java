@@ -43,6 +43,17 @@ public class StudentController extends HttpServlet {
 			}
 		}
 		
+		if(action != null && action.equals("update")) {
+			boolean update = stdimp.updateStudent(new Student(name, email, mobile, branch));
+			
+			if(update) {
+				response.sendRedirect("stud");
+			}else {
+				response.getWriter().print("Error While Updating the Data :(");
+				request.getRequestDispatcher("updateStudent.html").include(request, response);
+			}
+		}
+		
 	}
 
 }
