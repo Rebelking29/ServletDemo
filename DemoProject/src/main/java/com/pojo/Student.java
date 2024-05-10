@@ -53,6 +53,17 @@ public class Student {
 	}
 	
 	
+	public Student( String studnetName, String studentEmail, String studentMobile,
+			String studentBranch, int rollno) {
+		super();
+		this.studnetName = studnetName;
+		this.studentEmail = studentEmail;
+		this.studentMobile = studentMobile;
+		this.studentBranch = studentBranch;
+		this.studentrollno = rollno;
+	}
+	
+	
 		
 	
 	
