@@ -105,7 +105,7 @@ public class Studentdaoimpl implements StudentDao {
 		try {
 			
 			connection = DBConnection.getConnection();
-			ps = connection.prepareStatement("update students set name=?, email=?, mobile=? branch=? where rollno=? ");
+			ps = connection.prepareStatement("update students set name=?, email=?, mobile=? , branch=? where rollno=? ");
 			
 			ps.setString(1, std.getStudnetName());
 			ps.setString(2, std.getStudentEmail());

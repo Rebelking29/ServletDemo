@@ -6,6 +6,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Iterator;
 import java.util.List;
 
 import com.dao.Studentdaoimpl;
@@ -36,8 +38,31 @@ public class StudentController extends HttpServlet {
 		}else {
 			
 			List<Student> slist = stdimp.showStudents();
+			PrintWriter out = response.getWriter();
 			if(slist != null) {
-				response.getWriter().print(slist);
+				out.print("<html>");
+				out.print("<head></head>");
+				out.print("<body>");
+				out.print("<table border=1><caption><h1>Student List </h1></caption>");
+				out.print("<tr><th>RollNo </th> <th>Name </th> <th> Email Id </th> <th> Mobile No </th> <th> Branch </th></tr>");
+				
+					Iterator<Student> itr = slist.iterator();{
+						
+						while (itr.hasNext()) {
+							Student student = (Student) itr.next();
+							out.print("<tr><td>" + student.getStudentrollno() + "</td>");
+							out.print("<td>" + student.getStudnetName()+"</td>");
+							out.print("<td>" + student.getStudentEmail() + "</td>");
+							out.print("<td>" + student.getStudentMobile() +"</td>");
+							out.print("<td>" + student.getStudentBranch() +"</td></tr>");
+						}
+						
+					out.print("</table></caption>");
+					out.print("<a href = 'AddStudent.html'> Click To Add </a>");
+					out.print("</body></html>");
+						
+						
+					}
 			}else {
 				response.getWriter().print("List is empty Please Enter Student Data");
 				request.getRequestDispatcher("AddStudent.html").include(request, response);
@@ -57,6 +82,7 @@ public class StudentController extends HttpServlet {
 		String branch = request.getParameter("stdbranch");
 		String action = request.getParameter("action");
 		
+		
 		if(action != null && action.equals("add")) {
 			boolean addstudent = stdimp.addStudent(new Student(name, email, mobile, branch));
 			
@@ -69,13 +95,16 @@ public class StudentController extends HttpServlet {
 		}
 		
 		if(action != null && action.equals("update")) {
-			boolean update = stdimp.updateStudent(new Student(name, email, mobile, branch));
+			
+			
+			int rollno = Integer.parseInt(request.getParameter("rollno"));
+			boolean update = stdimp.updateStudent(new Student(name, email, mobile, branch, rollno ));
 			
 			if(update) {
 				response.sendRedirect("stud");
 			}else {
 				response.getWriter().print("Error While Updating the Data :(");
-				request.getRequestDispatcher("updateStudent.html").include(request, response);
+				request.getRequestDispatcher("UpdateStud.html").include(request, response);
 			}
 		}
 		
