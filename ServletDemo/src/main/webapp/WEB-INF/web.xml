@@ -49,7 +49,7 @@
   
   <servlet>
   	<servlet-name> insert</servlet-name>
-  	<servlet-class>com.servlet.GEtData</servlet-class>
+  	<servlet-class>com.servlet.GetData</servlet-class>
   	
  	<init-param>
  		<param-name>driver</param-name>
