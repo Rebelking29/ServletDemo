@@ -3,11 +3,7 @@
   <display-name>ServletDemo</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-    <welcome-file>default.htm</welcome-file>
+
   </welcome-file-list>
   <servlet>
     <description></description>
@@ -49,4 +45,39 @@
     <servlet-name>SquareServlet</servlet-name>
     <url-pattern>/SquareServlet</url-pattern>
   </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name> insert</servlet-name>
+  	<servlet-class>com.servlet.GEtData</servlet-class>
+  	
+ 	<init-param>
+ 		<param-name>driver</param-name>
+ 		<param-value>com.mysql.cj.jdbc.Driver</param-value>
+ 	</init-param>
+ 	
+ 	
+ 	<init-param>
+ 		<param-name>url</param-name>
+ 		<param-value>jdbc:mysql://localhost:3306/student</param-value>
+ 	</init-param>
+ 	
+ 	<init-param>
+ 		<param-name>user</param-name>
+ 		<param-value>sam</param-value>
+ 	</init-param>
+ 	
+ 	<init-param>
+ 		<param-name>pass</param-name>
+ 		<param-value>password</param-value>
+ 	</init-param>
+  	
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>insert</servlet-name>
+  		<url-pattern>/insert</url-pattern>
+  </servlet-mapping>
+  
+ 
 </web-app>
