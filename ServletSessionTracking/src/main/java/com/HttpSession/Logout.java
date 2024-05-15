@@ -23,6 +23,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 		HttpSession session = req.getSession();
 		
 		String email = (String) session.getAttribute("email");
+		System.out.println("Email: " + email);
 		
 		if(email != null) {
 			session.invalidate();

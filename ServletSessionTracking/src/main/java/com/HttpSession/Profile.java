@@ -25,7 +25,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 		String email = (String) session.getAttribute("email");
 		
 		if(email != null) {
-			session.invalidate();
+			
 			resp.getWriter().print("Welcome to Profile 		"+email);
 			
 		}else {
