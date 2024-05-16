@@ -23,13 +23,15 @@ public class Profile extends HttpServlet {
 		boolean access = false;
 		
 		
-		for (Cookie cookie : c) {
-			if (cookie != null) {
-				email = cookie.getValue();
-				if(email != null && email != "") {
-					System.out.println("Email= "+email);
-					access = true ;
-					break;
+		if(c != null) {
+			for (Cookie cookie : c) {
+				if (cookie != null) {
+					email = cookie.getValue();
+					if(email != null && email != "") {
+						System.out.println("Email= "+email);
+						access = true ;
+						break;
+					}
 				}
 			}
 		}
