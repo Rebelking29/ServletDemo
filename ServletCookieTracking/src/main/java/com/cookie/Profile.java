@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
+@WebServlet("/cprofile")
 public class Profile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -18,16 +19,29 @@ public class Profile extends HttpServlet {
 		response.setContentType("text/html");
 		
 		Cookie [] c = request.getCookies();
-		String email = c[0].getValue();
-		System.out.println(email);
+		String email = null;
+		boolean access = false;
 		
-		if(email != null) {
+		
+		for (Cookie cookie : c) {
+			if (cookie != null) {
+				email = cookie.getValue();
+				if(email != null && email != "") {
+					System.out.println("Email= "+email);
+					access = true ;
+					break;
+				}
+			}
+		}
+		
+		
+		if(access) {
 			
 			response.getWriter().print("Welcome To Profile\s" + email);
 			
 		}else {
 			response.getWriter().print("Please Login First");
-			request.getRequestDispatcher("login.html").include(request, response);
+			request.getRequestDispatcher("Login.html").include(request, response);
 		}
 		
 		

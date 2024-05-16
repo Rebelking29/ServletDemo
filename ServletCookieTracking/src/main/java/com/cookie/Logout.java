@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
+@WebServlet("/clogout")
 public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
@@ -17,17 +18,23 @@ public class Logout extends HttpServlet {
 		response.setContentType("text/html");
 		
 		Cookie [] c = request.getCookies();
+		boolean logout = false;
 		
 		if(c!= null) {
 			
 			Cookie ck = new Cookie("email", null);
-			response.addCookie(ck);
 			ck.setMaxAge(0);
-			response.getWriter().print("Logout Successfully");
+			response.addCookie(ck);
+			// response.getWriter().print("Logout Successfully");
+			logout = true;
 			
+		}
+		
+		if(logout) {
+			response.getWriter().print("Logout Successfully ");
 		}else {
 			response.getWriter().print("Please Login First");
-			request.getRequestDispatcher("login.html").include(request, response);
+			request.getRequestDispatcher("Login.html").include(request, response);
 		}
 		
 	}
