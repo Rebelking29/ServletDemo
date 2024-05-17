@@ -3,11 +3,6 @@
   <display-name>ServletCookieTracking</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-    <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
   <servlet>
     <description></description>
@@ -58,5 +53,35 @@
   <servlet-mapping>
     <servlet-name>Welcome</servlet-name>
     <url-pattern>/Welcome</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Logout1</display-name>
+    <servlet-name>Logout1</servlet-name>
+    <servlet-class>com.urlrewriting.Logout1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logout1</servlet-name>
+    <url-pattern>/Logout1</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Login1</display-name>
+    <servlet-name>Login1</servlet-name>
+    <servlet-class>com.urlrewriting.Login1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login1</servlet-name>
+    <url-pattern>/Login1</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Profile1</display-name>
+    <servlet-name>Profile1</servlet-name>
+    <servlet-class>com.urlrewriting.Profile1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Profile1</servlet-name>
+    <url-pattern>/Profile1</url-pattern>
   </servlet-mapping>
 </web-app>
