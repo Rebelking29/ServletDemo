@@ -8,6 +8,13 @@
 </head>
 <body>
 
+	<form action="welcome">
+	
+		<input type="text" name="name">
+		<button type="submit"> Ok </button>
+	
+	</form>
+	
 	
 	<div>
 	
