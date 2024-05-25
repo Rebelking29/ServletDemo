@@ -8,12 +8,14 @@
 </head>
 <body>
 
-	<% String name = request.getParameter("str");
-		out.print("Hello: " +name);
+	<% out.println("Hey"); %>
 	
-	%>
+
+	<jsp:include page="Print.jsp">
 	
-	<br>
-	 ${param.str}
+		<jsp:param value="${param.name}" name="str"/>
+	
+	</jsp:include>
+
 </body>
 </html>
